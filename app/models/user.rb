@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-
-
   before_save :downcase_email
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -14,5 +12,4 @@ class User < ApplicationRecord
   def downcase_email
     self.email = email.downcase
   end
-
 end
