@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Micropost, type: :model do
-  let(:micropost) { create(:micropost) }
+  let(:user) { create(:user) }
+  let(:micropost) { create(:micropost, user_id: user.id) }
 
   context 'バリデーション' do
     it 'マイクロポストが有効である' do
