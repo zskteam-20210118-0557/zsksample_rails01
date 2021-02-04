@@ -19,5 +19,11 @@ RSpec.describe Micropost, type: :model do
       micropost.valid?
       expect(micropost.errors[:user_id]).to include("can't be blank")
     end
+
+    it 'コンテントが140文字以内であること' do
+      micropost = build(:micropost, content: 'a' * 141)
+      micropost.valid?
+      expect(micropost.errors[:content]).to include('is too long (maximum is 140 characters)')
+    end
   end
 end
