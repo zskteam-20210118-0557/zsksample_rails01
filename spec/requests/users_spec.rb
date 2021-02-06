@@ -36,7 +36,7 @@ RSpec.describe '/users', type: :request do
 
     context 'ユーザーが存在しない場合' do
       it 'エラーが表示されること' do
-        expect { get user_path 1 }.to raise_error ActiveRecord::RecordNotFound
+        expect { get user_path User.count + 1 }.to raise_error ActiveRecord::RecordNotFound
       end
     end
   end
@@ -80,7 +80,7 @@ RSpec.describe '/users', type: :request do
 
       it 'リダイレクトすること' do
         post users_path, params: { user: FactoryBot.attributes_for(:user) }
-        expect(response).to redirect_to User.last
+        expect(response).to redirect_to User.first
       end
     end
 
@@ -114,7 +114,7 @@ RSpec.describe '/users', type: :request do
       it 'リダイレクトすること' do
         user = FactoryBot.create :user
         patch user_path(user.id), params: { user: FactoryBot.attributes_for(:user, name: 'ユーザーA') }
-        expect(response).to redirect_to User.last
+        expect(response).to redirect_to User.first
       end
     end
 
