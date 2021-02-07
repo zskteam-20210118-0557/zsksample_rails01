@@ -20,15 +20,8 @@
     <%= form.label :user_id %>
     <%= form.collection_select(:user_id, User.all, :id, :name) %>
   </div>
-   <div class="actions">
-    <%= form.label :image %>
-    <%= form.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
- 
-
 <% end %>
-

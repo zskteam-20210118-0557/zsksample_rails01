@@ -23,4 +23,3 @@ Style/FrozenStringLiteralComment:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
-

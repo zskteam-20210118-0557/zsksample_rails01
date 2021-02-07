@@ -2,11 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
-gem 'active_storage_validations'
 gem 'factory_bot_rails'
 gem 'faker'
-gem 'image_processing'
-gem 'mini_magick'
 gem 'will_paginate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '6.0.3.2'

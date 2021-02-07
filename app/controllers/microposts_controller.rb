@@ -21,10 +21,9 @@ class MicropostsController < ApplicationController
 
   # POST /microposts
   # POST /microposts.json
-  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def create
     @micropost = Micropost.new(micropost_params)
-    @micropost.image.attach(params[:micropost][:image])
+
     respond_to do |format|
       if @micropost.save
         format.html { redirect_to @micropost, notice: 'Micropost was successfully created.' }
@@ -35,7 +34,6 @@ class MicropostsController < ApplicationController
       end
     end
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
   # PATCH/PUT /microposts/1
   # PATCH/PUT /microposts/1.json
@@ -70,6 +68,6 @@ class MicropostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def micropost_params
-    params.require(:micropost).permit(:content, :user_id, :image)
+    params.require(:micropost).permit(:content, :user_id)
   end
 end
