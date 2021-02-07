@@ -36,7 +36,7 @@ RSpec.describe '/microposts', type: :request do
   end
   context '投稿が存在しない場合' do
     it 'エラーが表示されること' do
-      expect { get micropost_path 100 }.to raise_error ActiveRecord::RecordNotFound
+      expect { get micropost_path Micropost.count + 1 }.to raise_error ActiveRecord::RecordNotFound
     end
   end
 end
@@ -86,7 +86,7 @@ describe 'POST /create' do
 
     it 'リダイレクトすること' do
       post microposts_path, params: { micropost: FactoryBot.attributes_for(:micropost, user_id: @user.id) }
-      expect(response).to redirect_to Micropost.last
+      expect(response).to redirect_to Micropost.first
     end
   end
 
@@ -126,7 +126,7 @@ describe 'PATCH /update' do
     it 'リダイレクトすること' do
       patch micropost_path(@micropost.id),
             params: { micropost: FactoryBot.attributes_for(:micropost, name: 'ユーザーA', user_id: @user.id) }
-      expect(response).to redirect_to Micropost.last
+      expect(response).to redirect_to Micropost.first
     end
   end
 
