@@ -9,6 +9,7 @@ gem 'image_processing'
 gem 'mini_magick'
 gem 'will_paginate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'aws-sdk-s3', require: false
 gem 'rails', '6.0.3.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '1.2.3'
